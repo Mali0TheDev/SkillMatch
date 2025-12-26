@@ -119,3 +119,68 @@ body {
     .site-name { font-size: 24px; }
     .students-grid { grid-template-columns: 1fr; }
 }
+
+/* ================= TOP SKILLS ================= */
+/*كونتينتر التخصصات الاكثر طلبا*/
+.top-skills {
+  margin: 60px auto;             /* مسافة */
+  text-align: center;            /* توسيط */
+}
+
+.skills-list {
+  display: flex;                 /* جنب بعض */
+  justify-content: center;       /* توسيط */
+  flex-wrap: wrap;               /* سطر جديد */
+  gap: 15px;                     /* مسافة */
+}
+
+.skills-list span {
+  padding: 10px 20px;            /* مسافة */
+  background: linear-gradient(135deg, #b3d9ff, #c8a2c8); /* تدرج */
+  color: white;                  /* لون النص */
+  border-radius: 25px;           /* تدوير */
+  font-weight: 700;              /* عريض */
+   position: relative;            /* ضروري للتولتيب */
+  cursor: pointer;               /* يد */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.skills-list span:hover {
+  transform: translateY(-6px);   /* حركة */
+  box-shadow: 0 8px 20px rgba(138, 108, 255, 0.4); /* ظل */
+}
+
+.skills-list span::after {
+  content: attr(data-tooltip);   /* نص التولتيب */
+  position: absolute;            /* تموضع */
+  bottom: 120%;                  /* فوق العنصر */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(138, 108, 255, 0.95); /* لون */
+  color: #fff;                   /* نص أبيض */
+  padding: 8px 14px;             /* مسافة */
+  border-radius: 10px;           /* تدوير */
+  font-size: 0.9rem;             /* حجم */
+  white-space: nowrap;           /* سطر واحد */
+  opacity: 0;                    /* مخفي */
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.skills-list span::before {
+  content: '';                   /* السهم */
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: rgba(138, 108, 255, 0.95) transparent transparent transparent;
+  opacity: 0;
+}
+
+.skills-list span:hover::after,
+.skills-list span:hover::before {
+  opacity: 1;                    /* يظهر التولتيب */
+}

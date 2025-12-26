@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إضافة مشروع | SkillMatch</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Lobster&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="add-project.css">
+    <link rel="icon" type="image/png" href="images/icons8-business-48.png">
+</head>
+<body>
+
+    <header class="navbar-floating">
+        <div class="nav-left">
+            <img src="images/icons8-business-48.png" alt="SkillMatch Logo">
+            <span class="site-name">SkillMatch</span>
+        </div>
+        <div class="nav-right">
+            <a href="index.html">الرئيسية</a>
+            <a href="students (2).html">الطلاب</a>
+            <a href="projects.html">المشاريع</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>أضف مشروعك 🚀</h1>
+        <p class="subtitle">انشر مشروعك وابحث عن فريقك المثالي بسهولة</p>
+
+        <div class="success-msg" id="successMsg">تم إضافة المشروع بنجاح!</div>
+
+        <form id="addProjectForm">
+            <div class="form-group">
+                <label>اسم الشركة / المشروع *</label>
+                <input type="text" required placeholder="مثال: شركة المدار / منصة تعليم إلكتروني">
+            </div>
+
+            <div class="form-group">
+                <label>البريد الإلكتروني للتواصل *</label>
+                <input type="email" placeholder="example@mail.com" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>مدة المشروع المتوقعة</label>
+                    <input type="text" placeholder="مثال: 3 أشهر">
+                </div>
+                <div class="form-group">
+                    <label>عدد أعضاء الفريق المطلوب</label>
+                    <input type="number" min="1" placeholder="مثال: 4">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>وصف المشروع *</label>
+                <textarea required placeholder="اشرح فكرة المشروع، أهدافه، والتقنيات التي ستستخدم..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>المهارات التقنية المطلوبة *</label>
+                <input type="text" required placeholder="مثال: Flutter, Node.js, UI/UX Design">
+            </div>
+
+            <button type="submit" class="submit-btn">نشر المشروع الآن</button>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById("addProjectForm");
+        const successMsg = document.getElementById("successMsg");
+
+        form.addEventListener("submit", e => {
+            e.preventDefault();
+            successMsg.style.display = "block";
+            window.scrollTo({ top: 0, behavior: 'smooth' }); // صعود للأعلى لرؤية الرسالة
+            setTimeout(() => {
+                successMsg.style.display = "none";
+                form.reset();
+            }, 3000);
+        });
+    </script>
+
+</body>
+</html>
